@@ -24,7 +24,7 @@ namespace SQLiteRepositoryDemo.Services.SQLite
 
         public override async Task DeleteDatabase()
         {
-            await Items.DropTable();
+            await Items.DropTableAsync();
         }
     }
 }

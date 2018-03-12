@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SQLiteRepositoryDemo.Services.SQLite.Repository
 {
-    public class ItemRepository : SQLiteRepository.Services.SqliteRepository<Item>
+    public class ItemRepository : SQLiteRepository.Services.SQLiteRepository<Item>
     {
         public ItemRepository(AsyncLock mutex, SQLiteAsyncConnection sqliteConnection) : base(mutex, sqliteConnection)
         {
@@ -16,7 +16,7 @@ namespace SQLiteRepositoryDemo.Services.SQLite.Repository
 
         public async Task<List<Item>> GetCheckedItems()
         {
-            using (await _mutex.LockAsync().ConfigureAwait(false))
+            using (await Mutex.LockAsync().ConfigureAwait(false))
             {
                 return await Table.Where(item => item.Checked).ToListAsync();
             }

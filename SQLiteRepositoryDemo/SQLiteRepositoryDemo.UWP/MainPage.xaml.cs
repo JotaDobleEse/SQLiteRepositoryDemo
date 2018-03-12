@@ -14,6 +14,8 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.Practices.Unity;
 using Prism.Unity;
+using SQLiteRepository.Services;
+using SQLiteRepository.UWP.Services;
 
 namespace SQLiteRepositoryDemo.UWP
 {
@@ -31,7 +33,8 @@ namespace SQLiteRepositoryDemo.UWP
     {
         public void RegisterTypes(IUnityContainer container)
         {
-
+            // Dependency Service -- REQUIRED
+            container.RegisterType<ISQLiteProvider, SQLiteClient>();
         }
     }
 }

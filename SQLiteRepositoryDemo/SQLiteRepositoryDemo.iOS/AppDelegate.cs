@@ -2,6 +2,8 @@
 using UIKit;
 using Microsoft.Practices.Unity;
 using Prism.Unity;
+using SQLiteRepository.Services;
+using SQLiteRepository.iOS.Services;
 
 namespace SQLiteRepositoryDemo.iOS
 {
@@ -31,7 +33,8 @@ namespace SQLiteRepositoryDemo.iOS
     {
         public void RegisterTypes(IUnityContainer container)
         {
-            
+            // Dependency Service -- REQUIRED
+            container.RegisterType<ISQLiteProvider, SQLiteClient>();
         }
     }
 }

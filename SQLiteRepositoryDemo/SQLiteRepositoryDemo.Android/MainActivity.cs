@@ -3,6 +3,8 @@ using Android.Content.PM;
 using Android.OS;
 using Microsoft.Practices.Unity;
 using Prism.Unity;
+using SQLiteRepository.Droid.Services;
+using SQLiteRepository.Services;
 
 namespace SQLiteRepositoryDemo.Droid
 {
@@ -25,7 +27,8 @@ namespace SQLiteRepositoryDemo.Droid
     {
         public void RegisterTypes(IUnityContainer container)
         {
-            // Register any platform specific implementations
+            // Dependency Service -- REQUIRED
+            container.RegisterType<ISQLiteProvider, SQLiteClient>();
         }
     }
 }

@@ -39,11 +39,11 @@ namespace SQLiteRepositoryDemo.ViewModels
         public override async void OnNavigatingTo(NavigationParameters parameters)
         {
             base.OnNavigatingTo(parameters);
-            var itemsList = await context.Items.GetAll();
+            var itemsList = await context.Items.GetAllAsync();
             if (itemsList.Count == 0)
             {
                 await InitializeDb.Initialize(context);
-                itemsList = await context.Items.GetAll();
+                itemsList = await context.Items.GetAllAsync();
             }
             Items = new ObservableCollection<Item>(itemsList);
         }
@@ -57,7 +57,7 @@ namespace SQLiteRepositoryDemo.ViewModels
             var all = bool.Parse(allString);
             if (all)
             {
-                var itemsList = await context.Items.GetAll();
+                var itemsList = await context.Items.GetAllAsync();
                 Items = new ObservableCollection<Item>(itemsList);
             }
             else

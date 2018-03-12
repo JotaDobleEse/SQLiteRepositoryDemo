@@ -11,7 +11,7 @@ namespace SQLiteRepositoryDemo.Helpers
     {
         public static Task Initialize(DemoContext context)
         {
-            return context.Items.InsertRange(new Item[]
+            return context.Items.InsertRangeAsync(new Item[]
             {
                 new Item()
                 {

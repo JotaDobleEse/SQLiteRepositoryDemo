@@ -8,7 +8,7 @@ using System.Text;
 namespace SQLiteRepositoryDemo.Model
 {
     // IDbModel contains ID INT AUTOINCREMENT PK 
-    public class Item : IDbModel<Item>
+    public class Item : DbModel<Item>
     {
         [Indexed]
         public Guid ExternalId { get; set; }

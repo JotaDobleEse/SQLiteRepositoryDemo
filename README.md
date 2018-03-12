@@ -1,2 +1,2 @@
 # SQLiteRepositoryDemo
-Demo project of SQLiteRepository library for Xamarin.Forms
+Demo project of SQLiteRepository library for Xamarin.Forms using Prism.

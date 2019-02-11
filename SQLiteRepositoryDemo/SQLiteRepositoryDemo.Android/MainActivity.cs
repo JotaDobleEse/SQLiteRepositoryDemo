@@ -1,7 +1,8 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
-using Microsoft.Practices.Unity;
+using Prism;
+using Prism.Ioc;
 using Prism.Unity;
 using SQLiteRepository.Droid.Services;
 using SQLiteRepository.Services;
@@ -25,10 +26,10 @@ namespace SQLiteRepositoryDemo.Droid
 
     public class AndroidInitializer : IPlatformInitializer
     {
-        public void RegisterTypes(IUnityContainer container)
+        public void RegisterTypes(IContainerRegistry container)
         {
             // Dependency Service -- REQUIRED
-            container.RegisterType<ISQLiteProvider, SQLiteClient>();
+            container.Register<ISQLiteProvider, SQLiteClient>();
         }
     }
 }

@@ -1,9 +1,10 @@
 ﻿using Foundation;
 using UIKit;
-using Microsoft.Practices.Unity;
 using Prism.Unity;
 using SQLiteRepository.Services;
 using SQLiteRepository.iOS.Services;
+using Prism;
+using Prism.Ioc;
 
 namespace SQLiteRepositoryDemo.iOS
 {
@@ -31,10 +32,10 @@ namespace SQLiteRepositoryDemo.iOS
 
     public class iOSInitializer : IPlatformInitializer
     {
-        public void RegisterTypes(IUnityContainer container)
+        public void RegisterTypes(IContainerRegistry container)
         {
             // Dependency Service -- REQUIRED
-            container.RegisterType<ISQLiteProvider, SQLiteClient>();
+            container.Register<ISQLiteProvider, SQLiteClient>();
         }
     }
 }

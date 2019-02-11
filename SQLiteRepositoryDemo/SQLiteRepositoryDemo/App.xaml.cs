@@ -1,10 +1,11 @@
 ﻿using SQLiteRepositoryDemo.ViewModels;
 using SQLiteRepositoryDemo.Views;
-using Microsoft.Practices.Unity;
 using Prism.Unity;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using SQLiteRepositoryDemo.Services.SQLite;
+using Prism;
+using Prism.Ioc;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace SQLiteRepositoryDemo
@@ -27,13 +28,13 @@ namespace SQLiteRepositoryDemo
             await NavigationService.NavigateAsync("NavigationPage/MainPage");
         }
 
-        protected override void RegisterTypes()
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             // Register DemoContext in the IC
-            Container.RegisterType<DemoContext>();
+            containerRegistry.Register<DemoContext>();
 
-            Container.RegisterTypeForNavigation<NavigationPage>();
-            Container.RegisterTypeForNavigation<MainPage>();
+            containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.RegisterForNavigation<MainPage>();
         }
     }
 }

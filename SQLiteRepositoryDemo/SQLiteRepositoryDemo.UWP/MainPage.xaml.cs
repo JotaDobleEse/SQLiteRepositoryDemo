@@ -12,10 +12,11 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Microsoft.Practices.Unity;
 using Prism.Unity;
 using SQLiteRepository.Services;
 using SQLiteRepository.UWP.Services;
+using Prism;
+using Prism.Ioc;
 
 namespace SQLiteRepositoryDemo.UWP
 {
@@ -31,10 +32,10 @@ namespace SQLiteRepositoryDemo.UWP
 
     public class UwpInitializer : IPlatformInitializer
     {
-        public void RegisterTypes(IUnityContainer container)
+        public void RegisterTypes(IContainerRegistry container)
         {
             // Dependency Service -- REQUIRED
-            container.RegisterType<ISQLiteProvider, SQLiteClient>();
+            container.Register<ISQLiteProvider, SQLiteClient>();
         }
     }
 }
